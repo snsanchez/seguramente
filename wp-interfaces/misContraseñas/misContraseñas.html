@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--FRAMEWORKS Y FUENTES-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+        rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh;">
+
+
+
+    <div id="buttonsContainer" class="d-flex flex-column text-center align-items-center">
+
+        <!-- btn btn-primary btn-block -->
+        <!-- CONSULTAR MIS CONTRASEÑAS -->
+        <div id="getPasswordContainer">
+
+            <p id="passwordButtons" class="overflow-auto mt-4"></p>
+
+            <div id="accordion"></div>
+        </div>
+        <div id="alertContainer"></div>
+
+
+    </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        function verifyToken() {
+            return new Promise((resolve, reject) => {
+                const token = localStorage.getItem("token");
+
+                // Si no hay token, redirigir al login
+                if (!token) {
+                    window.location.href = "http://localhost/wordpress/index.php/loguearme/";
+                    return reject("No se encontró token.");
+                }
+
+                // Si hay token, decodificarlo para obtener el user_id
+                try {
+                    const payload = JSON.parse(atob(token.split(".")[1])); // Decodificar el payload del JWT
+                    const user_id = payload.user_id; // Aquí obtienes el user_id del token
+                    console.log("Usuario logueado con ID: ", user_id);
+                    resolve(user_id); // Resolvemos la promesa con el user_id
+                } catch (error) {
+                    console.error("Token inválido:", error);
+                    localStorage.removeItem("token");
+                    window.location.href = "http://localhost/wordpress/index.php/loguearme/";
+                    reject("Token inválido.");
+                }
+            });
+        }
+
+        window.onload = function () {
+            setTimeout(function () {
+                verifyToken()
+                    .then((user_id) => {
+                        getPasswords(user_id); // Obtener las contraseñas si el token es válido y se obtiene el user_id
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            }, 1500);
+        };
+    </script>
+</body>
+
+</html>

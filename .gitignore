@@ -1,0 +1,60 @@
+.env
+/venv
+/app/__pycache__
+__pycache__/
+.env
+/venv
+/__pycache__
+CREATE TABLE passwords.sql
+.gitattributes
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Entornos virtuales
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Archivos de configuración de IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de caché
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Archivos de pruebas
+.coverage
+.coverage.*
+nosetests.xml
+test-results/
+*.log
+
+# Archivos de configuración de Docker
+docker-compose.override.yml
+
+# Archivos de configuración de FastAPI
+*.json
+*.yaml
+*.yml
+
+# Otros
+*.DS_Store
+*.env
+
+# HTMLs
+bootstrap.html
