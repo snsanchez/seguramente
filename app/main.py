@@ -47,6 +47,10 @@ async def shutdown_database():
 app.add_event_handler("startup", startup_database)
 app.add_event_handler("shutdown", shutdown_database)
 
+@app.get("/")
+async def health_check():
+    return "Todo funciona bien bro"
+
 # MANEJO DE CONTRASEÑAS CREADAS POR EL USUARIO
 
 # AGREGAR UNA CONTRASEÑA
