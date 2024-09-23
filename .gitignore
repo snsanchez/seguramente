@@ -58,3 +58,9 @@ docker-compose.override.yml
 
 # HTMLs
 bootstrap.html
+login.html
+logoutBtn.html
+registro.html
+botonesMisContraseñas.html
+misContraseñas.html
+nuevaContraseña.html
