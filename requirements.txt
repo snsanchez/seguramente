@@ -28,6 +28,7 @@ MarkupSafe==2.1.5
 marshmallow==3.21.3
 mdurl==0.1.2
 mysql-connector-python==9.0.0
+mysqlclient==2.2.4
 orjson==3.10.6
 packaging==24.1
 psycopg2-binary==2.9.9
