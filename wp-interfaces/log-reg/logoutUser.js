@@ -7,6 +7,6 @@ async function logoutUser() {
       localStorage.removeItem("token");
 
       // Redirigir a la página de inicio o login
-      window.location.href = "http://localhost/wordpress/index.php/";
+      window.location.href = "https://seguramente.net.ar/";
     });
 }

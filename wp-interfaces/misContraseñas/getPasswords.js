@@ -4,7 +4,7 @@ function verifyToken() {
 
     // Si no hay token, redirigir al login
     if (!token) {
-      window.location.href = "http://localhost/wordpress/index.php/loguearme/";
+      window.location.href = "https://seguramente.net.ar/loguearme/";
       return reject("No se encontró token.");
     }
 
@@ -17,7 +17,7 @@ function verifyToken() {
     } catch (error) {
       console.error("Token inválido:", error);
       localStorage.removeItem("token");
-      window.location.href = "http://localhost/wordpress/index.php/loguearme/";
+      window.location.href = "https://seguramente.net.ar/loguearme/";
       reject("Token inválido.");
     }
   });
@@ -30,7 +30,7 @@ function getPasswords(user_id) {
   }
 
   // paso el userid en la url
-  fetch(`http://127.0.0.1:8000/passwords?user_id=${user_id}`, {
+  fetch(`https://seguramente.vercel.app/passwords?user_id=${user_id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

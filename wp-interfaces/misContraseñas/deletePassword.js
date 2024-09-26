@@ -9,7 +9,7 @@ function deletePassword(password_id) {
     return;
   }
 
-  fetch(`http://localhost:8000/passwords/${password_id}`, {
+  fetch(`https://seguramente.vercel.app/passwords/${password_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

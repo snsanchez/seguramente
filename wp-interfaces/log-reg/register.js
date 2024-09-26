@@ -13,7 +13,7 @@ async function addUser() {
     return;
   }
   try {
-    const response = await fetch("http://127.0.0.1:8000/register", {
+    const response = await fetch("https://seguramente.net.ar/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,8 +31,7 @@ async function addUser() {
       if (response.ok) {
         localStorage.setItem("token", result.token);
         showAlert("Usuario agregado correctamente", "success");
-        window.location.href =
-          "http://localhost/wordpress/index.php/dashboard/";
+        window.location.href = "https://seguramente.net.ar/dashboard/";
       } else {
         showAlert("Registro exitoso, pero no se recibió el token", "warning");
       }

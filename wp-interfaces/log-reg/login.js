@@ -8,7 +8,7 @@ async function loginUser() {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/login", {
+    const response = await fetch("https://seguramente.vercel.app/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,8 +27,7 @@ async function loginUser() {
         localStorage.setItem("token", token);
 
         showAlert("Estás dentro!", "success");
-        window.location.href =
-          "http://localhost/wordpress/index.php/dashboard/";
+        window.location.href = "https://seguramente.net.ar/dashboard/";
       } else {
         showAlert("Logueo exitoso, pero no se recibió el token", "warning");
       }
