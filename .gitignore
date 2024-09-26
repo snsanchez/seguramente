@@ -48,7 +48,7 @@ test-results/
 docker-compose.override.yml
 
 # Archivos de configuración de FastAPI
-*.json
+# *.json
 *.yaml
 *.yml
 
