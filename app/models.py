@@ -7,9 +7,8 @@ Propósito:
 '''
 
 
-from sqlalchemy import Column, Integer, String, ForeignKey, Table, MetaData, LargeBinary, BLOB
+from sqlalchemy import Column, Integer, String, ForeignKey, MetaData, LargeBinary
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -18,18 +17,16 @@ metadata = MetaData()
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(100), unique=True, nullable=False)
-    hashed_password = Column(BLOB, nullable=False)  
-    email = Column(String(100), unique=True, nullable=False)
-    secret_key = Column(BLOB, nullable=False)  
-    iv = Column(BLOB, nullable=False) 
-    passwords = relationship("Password", back_populates="user")
+    username = Column(String(50), unique=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    email = Column(String(254), unique=True, nullable=False)
+    secret_key = Column(LargeBinary, nullable=False)  # Clave secreta para encriptación
+    iv = Column(LargeBinary, nullable=False)  # Vector de inicialización (IV)
 
 class Password(Base):
     __tablename__ = 'passwords'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False, index=True)
     title = Column(String(100), nullable=False)
-    username = Column(String(100), nullable=False)
-    password = Column(BLOB, nullable=False) 
-    user = relationship("User", back_populates="passwords")
+    username = Column(String(50), nullable=False)
+    password = Column(LargeBinary, nullable=False)

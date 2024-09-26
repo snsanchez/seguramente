@@ -27,7 +27,6 @@ markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 marshmallow==3.21.3
 mdurl==0.1.2
-mysql-connector-python==9.0.0
 orjson==3.10.6
 packaging==24.1
 psycopg2-binary==2.9.9
@@ -38,7 +37,6 @@ pydantic-extra-types==2.9.0
 pydantic-settings==2.4.0
 pydantic_core==2.20.1
 Pygments==2.18.0
-PyMySQL==1.1.1
 python-dotenv==1.0.1
 python-jose==3.3.0
 python-multipart==0.0.9
