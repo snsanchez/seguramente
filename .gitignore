@@ -7,7 +7,6 @@ __pycache__/
 /__pycache__
 CREATE TABLE passwords.sql
 .gitattributes
-vercel.json
 
 # Python
 __pycache__/
