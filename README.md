@@ -36,8 +36,8 @@ Este proyecto es una **aplicación web de gestión de contraseñas**, diseñada 
 1. **Clonar el repositorio**:
 
    ```bash
-   git clone https://github.com/tu-usuario/password-manager.git
-   cd password-manager
+   git clone https://github.com/snsanchez/seguramente.git
+   cd seguramente
    ```
 
 2. **Crear un entorno virtual**:
