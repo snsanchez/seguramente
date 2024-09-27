@@ -18,7 +18,7 @@ class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String(50), unique=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
+    hashed_password = Column(LargeBinary, nullable=False)
     email = Column(String(254), unique=True, nullable=False)
     secret_key = Column(LargeBinary, nullable=False)  # Clave secreta para encriptación
     iv = Column(LargeBinary, nullable=False)  # Vector de inicialización (IV)
