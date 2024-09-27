@@ -1,6 +1,6 @@
 from sqlalchemy import insert, select
 from .database import database
-from .schemas import PasswordCreate, Password, PasswordPatch
+from .schemas import PasswordCreate, PasswordPatch
 from sqlalchemy.orm import Session
 from .models import Password, User
 from .encrypt_decrypt import encrypt_password, generate_key_iv, decrypt_password

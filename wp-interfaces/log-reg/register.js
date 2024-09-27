@@ -13,7 +13,7 @@ async function addUser() {
     return;
   }
   try {
-    const response = await fetch("https://seguramente.net.ar/register", {
+    const response = await fetch("https://seguramente.vercel.app/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
