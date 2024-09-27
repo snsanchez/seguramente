@@ -13,14 +13,11 @@ elif not DATABASE_URL:
     raise ValueError("POSTGRES_SQL no está configurada en el entorno.")
 
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL) #creando motor de base de datos
 
 
 database = Database(DATABASE_URL)
 metadata = MetaData()
-
-
-engine = create_engine(DATABASE_URL) #creando motor de base de datos
 
 # Crear un SessionLocal para usarlo en las dependencias
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
