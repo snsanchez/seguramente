@@ -55,7 +55,6 @@ class PasswordPatch(BaseModel):
     title: str = None
     username: str = None
     password: str = None
-    email: str = None
     
 # Este modelo se utilizará para recibir los datos de inicio de sesión
 class UserLogin(BaseModel):
