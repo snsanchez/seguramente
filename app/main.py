@@ -31,10 +31,10 @@ app = FastAPI()
 #configuracion de CORS 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # permite solicitudes desde cualquier origin, CAMBIARLO EN PRODUCCION!!
+    allow_origins=["https://seguramente.net.ar", "https://*.seguramente.net.ar"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "DELETE", "PATCH"],
-    allow_headers=["*"], # Content-Type", "x_api_key en los headers se debe incluir el api key
+    allow_headers=["*"],
 )
 
 async def startup_database():
