@@ -3,11 +3,12 @@ function editPassword(passwordId) {
     `title-${passwordId}`
   ).textContent;
   const usernameElement = document
-    .getElementById(`username-${passwordId}`)
-    .textContent.split(": ")[1]; // Solo el valor después de ": "
+    .getElementById(`username-${passwordId}-user`)
+    .querySelector("strong").textContent;
+
   const passwordElement = document
-    .getElementById(`password-${passwordId}`)
-    .textContent.split(": ")[1]; // Solo el valor después de ": "
+    .getElementById(`password-${passwordId}-pass`)
+    .querySelector("strong").textContent;
 
   // Prellenar los campos del modal
   document.getElementById("modal-title").value = titleElement;

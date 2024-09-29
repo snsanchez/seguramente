@@ -20,7 +20,7 @@
 
         <!-- btn btn-primary btn-block -->
         <!-- CONSULTAR MIS CONTRASEÑAS -->
-        <div id="getPasswordContainer">
+        <div id="getPasswordContainer" style="min-width: 50%; max-width: 70%;">
 
             <p id="passwordButtons" class="overflow-auto mt-4"></p>
 
@@ -37,7 +37,7 @@
     <div class="modal fade" id="editPasswordModal" tabindex="-1" aria-labelledby="editPasswordModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content text-dark">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editPasswordModalLabel">Editar Contraseña</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -58,15 +58,17 @@
                                     <label for="modal-password" class="form-label">Contraseña</label>
                                     <input type="text" class="form-control" id="modal-password">
                                 </div>
-                                <p class="text-muted">Si no desea cambiar un campo, déjelo vacío.</p>
+                                <p class="text-muted">Aquí usted podrá cambiar los campos que desee editar, para
+                                    terminar
+                                    presione "Guardar".</p>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-success" id="submitEditPassword"
-                        onclick="updatePassword()">Enviar</button>
+                        onclick="updatePassword()">Guardar</button>
                 </div>
             </div>
         </div>

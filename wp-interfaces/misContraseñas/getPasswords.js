@@ -1,28 +1,3 @@
-function verifyToken() {
-  return new Promise((resolve, reject) => {
-    const token = localStorage.getItem("token");
-
-    // Si no hay token, redirigir al login
-    if (!token) {
-      window.location.href = "https://seguramente.net.ar/loguearme/";
-      return reject("No se encontró token.");
-    }
-
-    // Si hay token, decodificarlo para obtener el user_id
-    try {
-      const payload = JSON.parse(atob(token.split(".")[1])); // Decodificar el payload del JWT
-      const user_id = payload.user_id; // Aquí obtienes el user_id del token
-      console.log("Usuario logueado con ID: ", user_id);
-      resolve(user_id); // Resolvemos la promesa con el user_id
-    } catch (error) {
-      console.error("Token inválido:", error);
-      localStorage.removeItem("token");
-      window.location.href = "https://seguramente.net.ar/loguearme/";
-      reject("Token inválido.");
-    }
-  });
-}
-
 function getPasswords(user_id) {
   if (!user_id) {
     console.log("no se pudo obtener el userid");
@@ -49,7 +24,7 @@ function getPasswords(user_id) {
       passwordButtons.innerHTML = "";
       data.forEach((password) => {
         const button = document.createElement("button");
-        button.className = "passBtn btn btn-info mb-2 w-100 "; // cambiar el color con primary/info/secondary
+        button.className = "passBtn btn btn-primary mb-2 w-100 "; // cambiar el color con primary/info/secondary
         button.type = "button";
         button.setAttribute("data-bs-toggle", "collapse");
         button.setAttribute("data-bs-target", `#password-${password.id}`);
@@ -63,27 +38,30 @@ function getPasswords(user_id) {
         collapseDiv.setAttribute("data-bs-parent", "#accordion");
 
         const cardBody = document.createElement("div");
-        cardBody.className = "card card-body";
+        cardBody.className = "card card-body text-dark"; // todo el texto negro
 
         const titleElement = document.createElement("h2");
         titleElement.textContent = password.title;
         titleElement.id = `title-${password.id}`;
 
         const ul = document.createElement("ul");
+        ul.className = "p-0";
 
         const usernameLi = document.createElement("li");
-        usernameLi.innerHTML = `<span>Username:</span> <strong>${password.username}</strong>`;
-        usernameLi.id = `username-${password.id}`;
+        usernameLi.innerHTML = `<span>Usuario:</span> <strong>${password.username}</strong>`;
+        usernameLi.id = `username-${password.id}-user`;
+        usernameLi.className = "text-start";
 
         const passwordLi = document.createElement("li");
-        passwordLi.innerHTML = `<span>Password:</span> <strong>${password.password}</strong>`;
-        passwordLi.id = `password-${password.id}`;
+        passwordLi.innerHTML = `<span>Contraseña:</span> <strong>${password.password}</strong>`;
+        passwordLi.id = `password-${password.id}-pass`;
+        passwordLi.className = "text-start";
 
         ul.appendChild(usernameLi);
         ul.appendChild(passwordLi);
 
         const editButton = document.createElement("button");
-        editButton.className = "btn btn-warning edit-btn";
+        editButton.className = "btn btn-outline-dark edit-btn mb-3"; // boton gris
         editButton.textContent = "Editar";
         editButton.setAttribute("onclick", `editPassword(${password.id})`); // Se llamará la función editPassword
 
