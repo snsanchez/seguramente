@@ -67,19 +67,21 @@ function getPasswords(user_id) {
 
         const titleElement = document.createElement("h2");
         titleElement.textContent = password.title;
+        titleElement.id = `title-${password.id}`;
 
         const ul = document.createElement("ul");
 
         const usernameLi = document.createElement("li");
         usernameLi.innerHTML = `<span>Username:</span> <strong>${password.username}</strong>`;
+        usernameLi.id = `username-${password.id}`;
 
         const passwordLi = document.createElement("li");
         passwordLi.innerHTML = `<span>Password:</span> <strong>${password.password}</strong>`;
+        passwordLi.id = `password-${password.id}`;
 
         ul.appendChild(usernameLi);
         ul.appendChild(passwordLi);
 
-        // Aquí agregamos los botones de Editar y Eliminar
         const editButton = document.createElement("button");
         editButton.className = "btn btn-warning edit-btn";
         editButton.textContent = "Editar";

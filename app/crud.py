@@ -69,25 +69,34 @@ def delete_password(db: Session, password_id: int):
 
 def update_password_partial(db: Session, password_id: int, patch_data: PasswordPatch):
     try:
+        # Buscar la contraseña por ID
         password = db.query(Password).filter(Password.id == password_id).first()
+
+        # Verificar si existe la contraseña
         if password is None:
             raise HTTPException(status_code=404, detail=f"Contraseña con id {password_id} no encontrada")
         
+        # Iterar sobre los campos recibidos
         for var, value in vars(patch_data).items():
             if value is not None:
-            # si la variable que se modifica es 'password' se encripta el nuevo valor ingresado 
+                # Si es el campo 'password', encriptarlo antes de guardarlo
                 if var == 'password':
                     user = db.query(User).filter(User.id == password.user_id).first()
                     key = user.secret_key
                     iv = user.iv
                     value = encrypt_password(value, key, iv)
-                    setattr(password, var, value)
+                
+                # Actualizar el valor en el objeto de la contraseña
+                setattr(password, var, value)
+        
+        # Guardar los cambios en la base de datos
         db.add(password)
         db.commit()
+
         return {"message": "Contraseña actualizada con éxito"}
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-            # setattr(password, var, base64.b64encode(value.encode('utf-8')).decode('utf-8') if var == 'password' else value)
 
 load_dotenv()
 
