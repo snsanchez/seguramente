@@ -2,9 +2,9 @@
 
 Este proyecto es una **aplicación web de gestión de contraseñas**, diseñada para ayudar a los usuarios a guardar y gestionar sus contraseñas de forma segura y sencilla. El sistema está especialmente enfocado en facilitar el uso para personas mayores, ofreciendo una interfaz clara y accesible, con funcionalidades robustas de encriptación y protección de datos.
 
-**Seguramente Wiki: https://sites.google.com/view/pgina-web-seguramente/**
-**Sitio Web: https://seguramente.net.ar**
-**API: https://seguramente.vercel.app**
+- **Seguramente Wiki: https://sites.google.com/view/pgina-web-seguramente/**
+- **Sitio Web: https://seguramente.net.ar**
+- **API: https://seguramente.vercel.app**
 
 ## **Características**
 
@@ -36,8 +36,8 @@ Este proyecto es una **aplicación web de gestión de contraseñas**, diseñada 
 1. **Clonar el repositorio**:
 
    ```bash
-   git clone https://github.com/tu-usuario/password-manager.git
-   cd password-manager
+   git clone https://github.com/snsanchez/seguramente.git
+   cd seguramente
    ```
 
 2. **Crear un entorno virtual**:
