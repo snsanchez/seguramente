@@ -24,7 +24,7 @@ function getPasswords(user_id) {
       passwordButtons.innerHTML = "";
       data.forEach((password) => {
         const button = document.createElement("button");
-        button.className = "passBtn btn btn-primary mb-2 w-100 "; // cambiar el color con primary/info/secondary
+        button.className = "passBtn btn btn-primary mb-2 w-100 text-white"; // cambiar el color con primary/info/secondary
         button.type = "button";
         button.setAttribute("data-bs-toggle", "collapse");
         button.setAttribute("data-bs-target", `#password-${password.id}`);

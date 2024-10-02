@@ -32,7 +32,6 @@
         }
 
         .login-container {
-            width: 400px;
             margin: 40px auto;
             padding: 20px;
             background-color: #fff;
@@ -102,12 +101,16 @@
             width: 356px;
             background-color: lightcyan;
         }
+
+        input {
+            color: #444 !important;
+        }
     </style>
 </head>
 
 <body class="d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh;">
 
-    <div class="login-container justify-content-center">
+    <div class="login-container container-fluid p-4 justify-content-center" style="max-width: 100%; width: 100%;">
 
         <div id="buttonsContainer" class="d-flex flex-column text-center align-items-center">
 
