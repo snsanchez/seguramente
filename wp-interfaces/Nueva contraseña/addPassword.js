@@ -38,11 +38,6 @@ async function addPassword(user_id) {
     return;
   }
 
-  if (password.length < 8) {
-    showAlert("La contraseña debe tener al menos 8 caracteres.", "warning");
-    return;
-  }
-
   try {
     const response = await fetch("https://seguramente.vercel.app/passwords/", {
       method: "POST",

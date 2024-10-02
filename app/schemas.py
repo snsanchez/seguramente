@@ -39,9 +39,9 @@ class User(BaseModel):
 # Esquema para la Creación de Contraseña
 class PasswordCreate(BaseModel):
     user_id: int = Field(..., gt=0)  # Obligatorio, tipo entero, mayor que 0
-    title: str = Field(..., min_length=1, max_length=100)  # Obligatorio, longitud entre 1 y 100
-    username: str = Field(..., min_length=3, max_length=100)  # Obligatorio, longitud entre 1 y 100
-    password: str = Field(..., min_length=5, max_length=100)  # Obligatorio, longitud entre 8 y 100
+    title: str = Field(..., max_length=50)  # Obligatorio
+    username: str = Field(..., max_length=50)  # Obligatorio
+    password: str = Field(..., max_length=100)  # Obligatorio
 
 class Password(PasswordCreate):
     id: Optional[int]
