@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Fontawesome Icons -->
+    <script src="https://kit.fontawesome.com/e872ba44e8.js" crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+</head>
+
+<body onload="defaultPassword()">
+
+    <form class="d-flex">
+
+        <!-- Rounded switch for dark/light mode -->
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round" onclick="Darkmode()"></span>
+        </label>
+    </form>
+
+
+
+    <div class="container">
+        <h1 class="fs-3 text-center display-1">Generador de Contraseñas</h1>
+        <div class="m-3 p-2">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <label for="pass" class="visually-hidden">Contraseña</label>
+                    <input type="text" class="form-control form-control-lg fs-6" id="pass" placeholder="Contraseña"
+                        readonly>
+                </div>
+                <div class="copyBtn col-md-4 d-grid gap-2 col-6 mx-auto ">
+                    <button class="btn-warning btn-lg" onclick="copyButton()">
+                        <i class="fas fa-copy me-4" id="copyButtonIcon"></i><span id="copyButtonText">Copiar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-2 p-2">
+            <div class="row">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="checksymbols" autocomplete="off">
+                    <label class="btn btn-outline-success" for="checksymbols">Símbolos</label>
+
+                    <input type="checkbox" class="btn-check" id="checknumbers" autocomplete="off">
+                    <label class="btn btn-outline-success" for="checknumbers">Números</label>
+
+                    <input type="checkbox" class="btn-check" id="checklowercase" autocomplete="off">
+                    <label class="btn btn-outline-success" for="checklowercase">Minúsculas</label>
+
+                    <input type="checkbox" class="btn-check" id="checkuppercase" autocomplete="off">
+                    <label class="btn btn-outline-success" for="checkuppercase">Mayúsculas</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-2 p-2">
+            <div class=" copyBtn d-grid gap-2 col-4 mx-auto">
+                <button class="btn btn-danger btn-lg" type="button" onclick="defaultPassword()">
+                    <i class="fas fa-sync-alt me-4 justify-content-center align-items-center"></i>
+                    Generar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+
+    <!--added dark mode with js-->
+    <script>
+        var icon = document.getElementById("icon");
+
+        if (localStorage.getItem("theme") == null) {
+            localStorage.setItem("theme", "light");
+        }
+
+        let localData = localStorage.getItem("theme");
+        if (localData == "light") {
+            document.body.classList.remove("dark-theme");
+        } else if (localData == "dark") {
+            document.body.classList.add("dark-theme");
+        }
+
+        icon.onclick = function () {
+            document.body.classList.toggle("dark-theme");
+            if (document.body.classList.contains("dark-theme")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
