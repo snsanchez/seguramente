@@ -2,7 +2,7 @@
 
 Este proyecto es una **aplicación web de gestión de contraseñas**, diseñada para ayudar a los usuarios a guardar y gestionar sus contraseñas de forma segura y sencilla. El sistema está especialmente enfocado en facilitar el uso para personas mayores, ofreciendo una interfaz clara y accesible, con funcionalidades robustas de encriptación y protección de datos.
 
-- **Seguramente Wiki: https://sites.google.com/view/pgina-web-seguramente/**
+- **Seguramente Wiki: https://github.com/snsanchez/seguramente/wiki**
 - **Sitio Web: https://seguramente.net.ar**
 - **API: https://seguramente.vercel.app**
 
